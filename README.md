@@ -1,4 +1,4 @@
-# Premium Nutrition E-Commerce Platform
+# Brand Name E-Commerce Platform
 
 A high-performance, modern e-commerce application built to showcase advanced full-stack development skills. This platform is tailored for a premium sports nutrition brand, offering a seamless customer shopping experience alongside a secure, functional administrative dashboard.
 
