@@ -80,7 +80,7 @@ export default function AdminOrdersPage() {
                   <TableCell className="text-muted-foreground">{new Date(order.createdAt).toLocaleDateString()}</TableCell>
                   <TableCell>
                     <div className="flex flex-col">
-                      <span className="font-medium text-white">{order.userEmail}</span>
+                      <span className="font-medium text-foreground">{order.userEmail}</span>
                       <span className="text-xs text-muted-foreground mt-1 line-clamp-1 max-w-[200px]" title={typeof order.shippingAddress === 'string' ? order.shippingAddress : `${order.shippingAddress?.line1 || ''}, ${order.shippingAddress?.city || ''}`}>
                         {typeof order.shippingAddress === 'string' ? order.shippingAddress : `${order.shippingAddress?.line1 || ''}, ${order.shippingAddress?.city || ''}`}
                       </span>
@@ -92,7 +92,7 @@ export default function AdminOrdersPage() {
                   </TableCell>
                   <TableCell>
                     <select 
-                      className="bg-card border border-border/50 rounded-md px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-primary cursor-pointer text-white"
+                      className="bg-card border border-border/50 rounded-md px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-primary cursor-pointer text-foreground"
                       value={order.status}
                       onChange={(e) => handleStatusChange(order.id, e.target.value)}
                     >

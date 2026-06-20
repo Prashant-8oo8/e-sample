@@ -8,10 +8,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="text-center md:text-left">
             <h2 className="font-bold text-primary tracking-widest text-xl mb-1 font-serif">
-              HAZE &amp; CO.
+              [BRAND NAME]
             </h2>
             <p className="text-xs tracking-widest text-muted-foreground uppercase">
-              Premium Hookah Experience
+              Premium Nutrition
             </p>
           </div>
 
@@ -32,9 +32,12 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 border-t border-border pt-6 text-center">
+        <div className="mt-8 border-t border-border pt-6 text-center space-y-4">
+          <p className="text-xs text-muted-foreground max-w-2xl mx-auto">
+            *These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.
+          </p>
           <p className="text-sm text-muted-foreground">
-            &copy; 2025 Haze &amp; Co. — Crafted for the culture.
+            &copy; {new Date().getFullYear()} [BRAND NAME]. All rights reserved.
           </p>
         </div>
       </div>

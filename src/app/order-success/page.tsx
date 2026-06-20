@@ -13,12 +13,12 @@ function SuccessContent() {
 
   return (
     <div className="container mx-auto px-4 py-32 text-center max-w-2xl">
-      <div className="text-6xl mb-8">💨</div>
+      <div className="text-6xl mb-8">💪</div>
       <h1 className="text-4xl font-bold mb-4 tracking-tight text-primary font-serif">
-        Order Confirmed! 💨
+        Order Confirmed! 💪
       </h1>
       <p className="text-muted-foreground mb-4 text-lg">
-        Your hookah order is on its way. Sit back, relax, and get ready for the session.
+        Your supplement order is on its way. Get ready to elevate your performance.
       </p>
       {orderId && (
         <p className="text-sm text-muted-foreground mb-2">

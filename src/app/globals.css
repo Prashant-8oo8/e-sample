@@ -49,77 +49,77 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* ── Hookah Brand — always dark ─────────────────────────────────────────── */
+/* ── Supplement Brand — light theme ──────────────────────────────────────────── */
 :root {
-  --background:          #0a0a0a;
-  --foreground:          #F5F5F5;
-  --card:                #111111;
-  --card-foreground:     #F5F5F5;
-  --popover:             #111111;
-  --popover-foreground:  #F5F5F5;
-  /* Gold primary */
-  --primary:             #C9A84C;
-  --primary-foreground:  #0a0a0a;
-  /* Subtle dark secondary */
-  --secondary:           #1a1a1a;
-  --secondary-foreground:#F5F5F5;
-  --muted:               #1a1a1a;
-  --muted-foreground:    #888888;
-  --accent:              #1a1a1a;
-  --accent-foreground:   #C9A84C;
-  --destructive:         #8B1A1A;
-  --border:              #2a2a2a;
-  --input:               #1a1a1a;
-  --ring:                #C9A84C;
-  --chart-1: #C9A84C;
-  --chart-2: #8B1A1A;
-  --chart-3: #3a3a2a;
-  --chart-4: #2a2a1a;
-  --chart-5: #1a1a0a;
+  --background:          #FAFAF8;
+  --foreground:          #1A1A1A;
+  --card:                #FFFFFF;
+  --card-foreground:     #1A1A1A;
+  --popover:             #FFFFFF;
+  --popover-foreground:  #1A1A1A;
+  /* Gold primary — kept as brand accent */
+  --primary:             #B8923E;
+  --primary-foreground:  #FFFFFF;
+  /* Light secondary */
+  --secondary:           #F2F0EA;
+  --secondary-foreground:#1A1A1A;
+  --muted:               #F2F0EA;
+  --muted-foreground:    #6B6B6B;
+  --accent:              #F2F0EA;
+  --accent-foreground:   #B8923E;
+  --destructive:         #B91C1C;
+  --border:              #E5E2D9;
+  --input:               #F2F0EA;
+  --ring:                #B8923E;
+  --chart-1: #B8923E;
+  --chart-2: #B91C1C;
+  --chart-3: #DCD6BE;
+  --chart-4: #E8E2C8;
+  --chart-5: #F0EAD2;
   --radius: 0.5rem;
-  --sidebar:                 #111111;
-  --sidebar-foreground:      #F5F5F5;
-  --sidebar-primary:         #C9A84C;
-  --sidebar-primary-foreground: #0a0a0a;
-  --sidebar-accent:          #1a1a1a;
-  --sidebar-accent-foreground: #C9A84C;
-  --sidebar-border:          #2a2a2a;
-  --sidebar-ring:            #C9A84C;
+  --sidebar:                 #FFFFFF;
+  --sidebar-foreground:      #1A1A1A;
+  --sidebar-primary:         #B8923E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent:          #F2F0EA;
+  --sidebar-accent-foreground: #B8923E;
+  --sidebar-border:          #E5E2D9;
+  --sidebar-ring:            #B8923E;
 }
 
-/* Keep .dark identical so existing dark class works */
+/* Keep .dark identical so existing dark class works (now also light) */
 .dark {
-  --background:          #0a0a0a;
-  --foreground:          #F5F5F5;
-  --card:                #111111;
-  --card-foreground:     #F5F5F5;
-  --popover:             #111111;
-  --popover-foreground:  #F5F5F5;
-  --primary:             #C9A84C;
-  --primary-foreground:  #0a0a0a;
-  --secondary:           #1a1a1a;
-  --secondary-foreground:#F5F5F5;
-  --muted:               #1a1a1a;
-  --muted-foreground:    #888888;
-  --accent:              #1a1a1a;
-  --accent-foreground:   #C9A84C;
-  --destructive:         #8B1A1A;
-  --border:              #2a2a2a;
-  --input:               #1a1a1a;
-  --ring:                #C9A84C;
-  --chart-1: #C9A84C;
-  --chart-2: #8B1A1A;
-  --chart-3: #3a3a2a;
-  --chart-4: #2a2a1a;
-  --chart-5: #1a1a0a;
-  --sidebar:                 #111111;
-  --sidebar-foreground:      #F5F5F5;
-  --sidebar-primary:         #C9A84C;
-  --sidebar-primary-foreground: #0a0a0a;
-  --sidebar-accent:          #1a1a1a;
-  --sidebar-accent-foreground: #C9A84C;
-  --sidebar-border:          #2a2a2a;
-  --sidebar-ring:            #C9A84C;
+  --background:          #FAFAF8;
+  --foreground:          #1A1A1A;
+  --card:                #FFFFFF;
+  --card-foreground:     #1A1A1A;
+  --popover:             #FFFFFF;
+  --popover-foreground:  #1A1A1A;
+  --primary:             #B8923E;
+  --primary-foreground:  #FFFFFF;
+  --secondary:           #F2F0EA;
+  --secondary-foreground:#1A1A1A;
+  --muted:               #F2F0EA;
+  --muted-foreground:    #6B6B6B;
+  --accent:              #F2F0EA;
+  --accent-foreground:   #B8923E;
+  --destructive:         #B91C1C;
+  --border:              #E5E2D9;
+  --input:               #F2F0EA;
+  --ring:                #B8923E;
+  --chart-1: #B8923E;
+  --chart-2: #B91C1C;
+  --chart-3: #DCD6BE;
+  --chart-4: #E8E2C8;
+  --chart-5: #F0EAD2;
+  --sidebar:                 #FFFFFF;
+  --sidebar-foreground:      #1A1A1A;
+  --sidebar-primary:         #B8923E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent:          #F2F0EA;
+  --sidebar-accent-foreground: #B8923E;
+  --sidebar-border:          #E5E2D9;
+  --sidebar-ring:            #B8923E;
 }
 
 @layer base {
@@ -138,10 +138,10 @@
 /* ── Smoke / mist hero effect ────────────────────────────────────────────── */
 .smoke-overlay {
   background: radial-gradient(ellipse 80% 60% at 50% 100%,
-    rgba(201,168,76,0.08) 0%,
-    rgba(139,26,26,0.05) 40%,
+    rgba(184,146,62,0.10) 0%,
+    rgba(185,28,28,0.05) 40%,
     transparent 70%),
-    linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.85) 100%);
+    linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.9) 100%);
   backdrop-filter: blur(0px);
 }
 
@@ -150,7 +150,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #888888;
+  color: #6B6B6B;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -160,5 +160,5 @@
   content: "";
   flex: 1;
   height: 1px;
-  background: #2a2a2a;
+  background: #E5E2D9;
 }

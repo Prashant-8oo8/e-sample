@@ -1,17 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingCart, LogOut, User as UserIcon } from "lucide-react";
+import { ShoppingCart, LogOut, User as UserIcon, PackageSearch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/store/useCartStore";
 import { useAuth } from "@/context/AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { Badge } from "@/components/ui/badge";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const { items } = useCartStore();
   const { user, isAdmin } = useAuth();
+  const router = useRouter();
 
   const itemCount = items.reduce((total, item) => total + item.quantity, 0);
 
@@ -23,6 +25,15 @@ export default function Navbar() {
     }
   };
 
+  const handleTrackOrderClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (user) {
+      router.push("/track-order");
+    } else {
+      router.push("/login?redirect=/track-order");
+    }
+  };
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto flex h-16 items-center px-4 justify-between">
@@ -30,10 +41,10 @@ export default function Navbar() {
         <div className="flex gap-6 md:gap-10 items-center">
           <Link href="/" className="flex flex-col items-start leading-none">
             <span className="font-bold inline-block text-primary text-xl tracking-widest font-serif">
-              HAZE &amp; CO.
+              [BRAND NAME]
             </span>
             <span className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-              Premium Hookah Experience
+              Premium Nutrition
             </span>
           </Link>
           <nav className="hidden md:flex gap-6">
@@ -65,6 +76,17 @@ export default function Navbar() {
               </Button>
             </Link>
           )}
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={handleTrackOrderClick}
+            title="Track Order"
+            className="hover:text-primary"
+          >
+            <PackageSearch className="h-5 w-5" />
+            <span className="sr-only">Track Order</span>
+          </Button>
 
           <Link href="/cart">
             <Button variant="ghost" size="icon" className="relative hover:text-primary">

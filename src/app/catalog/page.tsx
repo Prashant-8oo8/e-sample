@@ -7,7 +7,7 @@ import ProductCard, { Product } from "@/components/ProductCard";
 import { Input } from "@/components/ui/input";
 import { useSearchParams } from "next/navigation";
 
-const CATEGORIES = ["Hookahs", "Flavors", "Accessories"];
+const CATEGORIES = ["Whey Protein", "Plant-Based", "Mass Gainer", "Pre-Workout", "Accessories"];
 
 function CatalogContent() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -61,7 +61,7 @@ function CatalogContent() {
       {/* Search + Category filters */}
       <div className="flex flex-col md:flex-row gap-4 mb-10">
         <Input
-          placeholder="Search flavors, hookahs, accessories..."
+          placeholder="Search proteins, mass gainers, pre-workouts..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="max-w-md bg-card border-border focus-visible:ring-primary h-12"

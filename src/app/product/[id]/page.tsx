@@ -58,16 +58,17 @@ export default function ProductDetailPage() {
       price: product.price,
       quantity: 1,
       imageUrl: product.imageUrl,
-      color: product.color,
+      flavor: product.flavor,
+      weight: product.weight,
     });
-    toast.success(`${product.name} added to your session!`);
+    toast.success(`${product.name} added to your cart!`);
   };
 
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
         {/* Image */}
-        <div className="relative aspect-[4/5] w-full bg-muted rounded-lg overflow-hidden border border-border shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+        <div className="relative aspect-[4/5] w-full bg-muted rounded-lg overflow-hidden border border-border shadow-lg">
           <Image
             src={product.imageUrl || "/placeholder.svg"}
             alt={product.name}
@@ -90,11 +91,28 @@ export default function ProductDetailPage() {
             <p className="text-3xl font-bold text-primary">
               ₹{product.price.toLocaleString("en-IN")}
             </p>
-            {product.color && (
-              <span className="inline-block mt-3 px-3 py-1 border border-border rounded-full text-xs text-muted-foreground tracking-wide">
-                Color: {product.color}
-              </span>
-            )}
+            <div className="flex flex-wrap gap-2 mt-3">
+              {product.flavor && (
+                <span className="inline-block px-3 py-1 border border-border rounded-full text-xs text-muted-foreground tracking-wide">
+                  Flavor: {product.flavor}
+                </span>
+              )}
+              {product.weight && (
+                <span className="inline-block px-3 py-1 border border-border rounded-full text-xs text-muted-foreground tracking-wide">
+                  Weight: {product.weight}
+                </span>
+              )}
+              {product.proteinPerServing && (
+                <span className="inline-block px-3 py-1 border border-border rounded-full text-xs text-muted-foreground tracking-wide">
+                  {product.proteinPerServing}g Protein / Serving
+                </span>
+              )}
+              {product.servingsPerContainer && (
+                <span className="inline-block px-3 py-1 border border-border rounded-full text-xs text-muted-foreground tracking-wide">
+                  {product.servingsPerContainer} Servings
+                </span>
+              )}
+            </div>
           </div>
 
           {/* About section */}
@@ -126,7 +144,7 @@ export default function ProductDetailPage() {
               onClick={handleAddToCart}
               disabled={product.stock <= 0}
             >
-              {product.stock > 0 ? "ADD TO MY SESSION" : "OUT OF STOCK"}
+              {product.stock > 0 ? "ADD TO CART" : "OUT OF STOCK"}
             </Button>
           </div>
         </div>

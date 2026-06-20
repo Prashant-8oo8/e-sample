@@ -24,12 +24,12 @@ const stripePromise = loadStripe(
 );
 
 const stripeAppearance = {
-  theme: "night" as const,
+  theme: "stripe" as const,
   variables: {
-    colorPrimary: "#C9A84C",
-    colorBackground: "#111111",
-    colorText: "#F5F5F5",
-    colorDanger: "#ff4444",
+    colorPrimary: "#B8923E",
+    colorBackground: "#FFFFFF",
+    colorText: "#1A1A1A",
+    colorDanger: "#B91C1C",
     fontFamily: "sans-serif",
     borderRadius: "8px",
   },
@@ -112,7 +112,7 @@ function StripePaymentForm({
   return (
     <form onSubmit={handleConfirm} className="space-y-6">
       {/* Stripe PaymentElement handles UPI, cards, netbanking automatically for INR */}
-      <div className="bg-[#0d0d0d] border border-border/50 rounded-lg p-4">
+      <div className="bg-card border border-border/50 rounded-lg p-4">
         <PaymentElement
           onReady={() => setStripeReady(true)}
           options={{
@@ -418,9 +418,15 @@ export default function CheckoutPage() {
               <div key={item.productId} className="flex justify-between text-sm">
                 <span>
                   {item.quantity}× {item.name}
-                  {item.color && (
+                  {item.flavor && (
                     <span className="text-muted-foreground ml-1">
-                      ({item.color})
+                      ({item.flavor}
+                      {item.weight && `, ${item.weight}`})
+                    </span>
+                  )}
+                  {!item.flavor && item.weight && (
+                    <span className="text-muted-foreground ml-1">
+                      ({item.weight})
                     </span>
                   )}
                 </span>

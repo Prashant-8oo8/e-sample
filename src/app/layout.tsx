@@ -24,9 +24,9 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Haze & Co. — Premium Hookah Experience",
+  title: "[BRAND NAME] — Premium Sports Nutrition",
   description:
-    "Handcrafted hookahs, premium shisha flavors, and everything you need for the perfect session.",
+    "High-quality whey proteins, powerful pre-workouts, and everything you need for the perfect recovery and performance.",
 };
 
 export default function RootLayout({

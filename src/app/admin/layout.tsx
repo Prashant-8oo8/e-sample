@@ -24,7 +24,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <div className="container mx-auto px-4 py-12 flex flex-col md:flex-row gap-8 min-h-[calc(100vh-200px)]">
       <aside className="w-full md:w-64 flex-shrink-0">
-        <div className="sticky top-24 bg-card border border-border/50 rounded-lg p-4 space-y-2 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+        <div className="sticky top-24 bg-card border border-border/50 rounded-lg p-4 space-y-2 shadow-md">
           <h2 className="font-bold text-xl mb-4 px-2 tracking-widest text-primary">ADMIN</h2>
           <Link href="/admin">
             <Button variant="ghost" className="w-full justify-start text-lg h-12 hover:bg-primary/10 hover:text-primary">
@@ -43,7 +43,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </Link>
         </div>
       </aside>
-      <main className="flex-1 bg-card border border-border/50 rounded-lg p-6 md:p-8 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+      <main className="flex-1 bg-card border border-border/50 rounded-lg p-6 md:p-8 shadow-md">
         {children}
       </main>
     </div>

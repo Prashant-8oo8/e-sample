@@ -7,7 +7,8 @@ export interface CartItem {
   price: number;
   quantity: number;
   imageUrl: string;
-  color?: string;
+  flavor?: string;
+  weight?: string;
 }
 
 interface CartState {

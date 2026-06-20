@@ -92,7 +92,7 @@ function SignupContent() {
         });
       }
 
-      toast.success("Account ready! Welcome to Haze & Co.");
+      toast.success("Account ready! Welcome to [BRAND NAME].");
       router.push(redirect);
     } catch (err: any) {
       console.error("Google popup initiation error:", err);
@@ -136,12 +136,12 @@ function SignupContent() {
   };
 
   return (
-    <Card className="w-full max-w-md border-border shadow-[0_0_40px_rgba(201,168,76,0.1)]">
+    <Card className="w-full max-w-md border-border shadow-lg">
       <CardHeader className="space-y-1 text-center">
         <CardTitle className="text-3xl font-bold tracking-widest text-primary font-serif">
-          HAZE &amp; CO.
+          [BRAND NAME]
         </CardTitle>
-        <CardDescription>Create an account to start your session</CardDescription>
+        <CardDescription>Create an account to start your journey</CardDescription>
       </CardHeader>
 
       <CardContent className="space-y-4">

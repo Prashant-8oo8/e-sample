@@ -11,7 +11,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-06-20',
+  apiVersion: '2024-06-20' as any,
 });
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -135,7 +135,7 @@ async function handlePaymentSuccess(intent: Stripe.PaymentIntent) {
   // Send confirmation email
   try {
     await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL || 'Haze & Co. <onboarding@resend.dev>',
+      from: process.env.RESEND_FROM_EMAIL || '[BRAND NAME] <onboarding@resend.dev>',
       to: orderData.userEmail,
       subject: `Order Confirmed — #${docRef.id}`,
       html: buildEmailTemplate(orderData, docRef.id),
@@ -191,7 +191,7 @@ function buildEmailTemplate(order: any, orderId: string): string {
         Phone: ${escapeHtml(order.shippingAddress.phone)}
       </p>
       <p style="color: #666; font-size: 12px;">
-        Thank you for shopping with Haze & Co.
+        Thank you for shopping with [BRAND NAME].
       </p>
     </div>
   `;

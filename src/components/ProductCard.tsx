@@ -16,7 +16,10 @@ export interface Product {
   imageUrl: string;
   imageFileId?: string;
   stock: number;
-  color?: string;
+  flavor?: string;
+  weight?: string;
+  proteinPerServing?: number;
+  servingsPerContainer?: number;
 }
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -29,13 +32,14 @@ export default function ProductCard({ product }: { product: Product }) {
       price: product.price,
       quantity: 1,
       imageUrl: product.imageUrl,
-      color: product.color,
+      flavor: product.flavor,
+      weight: product.weight,
     });
     toast.success(`${product.name} added to your session!`);
   };
 
   return (
-    <Card className="group overflow-hidden rounded-lg border border-border bg-card transition-all hover:shadow-[0_0_24px_rgba(201,168,76,0.18)] hover:border-primary/60 flex flex-col h-full">
+    <Card className="group overflow-hidden rounded-lg border border-border bg-card transition-all hover:shadow-lg hover:border-primary/60 flex flex-col h-full">
       <Link href={`/product/${product.id}`} className="block relative aspect-[4/5] overflow-hidden bg-muted">
         <Image
           src={product.imageUrl || "/placeholder.svg"}
@@ -51,9 +55,17 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="mt-3 font-bold text-primary text-xl">
           ₹{product.price.toLocaleString("en-IN")}
         </p>
-        {product.color && (
-          <p className="mt-1 text-xs text-muted-foreground">Color: {product.color}</p>
-        )}
+        <div className="mt-2 flex flex-wrap gap-2">
+          {product.flavor && (
+            <span className="text-xs bg-muted px-2 py-1 rounded-md text-muted-foreground">Flavor: {product.flavor}</span>
+          )}
+          {product.weight && (
+            <span className="text-xs bg-muted px-2 py-1 rounded-md text-muted-foreground">Weight: {product.weight}</span>
+          )}
+          {product.proteinPerServing && (
+            <span className="text-xs bg-muted px-2 py-1 rounded-md text-muted-foreground">{product.proteinPerServing}g Protein</span>
+          )}
+        </div>
       </CardContent>
       <CardFooter className="p-5 pt-0">
         <Button

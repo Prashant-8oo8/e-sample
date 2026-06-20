@@ -25,7 +25,7 @@ export default function CartPage() {
     return (
       <div className="container mx-auto px-4 py-32 text-center max-w-2xl">
         <h1 className="text-4xl font-bold mb-6 tracking-tight text-primary font-serif">
-          Your Session Cart is Empty
+          Your Cart is Empty
         </h1>
         <p className="text-muted-foreground mb-10 text-lg">
           Looks like you haven't added anything yet. Explore our collection.
@@ -42,7 +42,7 @@ export default function CartPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-8 tracking-tight text-primary font-serif">
-        My Session Cart
+        My Cart
       </h1>
 
       <div className="grid lg:grid-cols-3 gap-12">
@@ -66,11 +66,18 @@ export default function CartPage() {
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="font-semibold text-xl font-serif">{item.name}</h3>
-                    {item.color && (
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Color: {item.color}
-                      </p>
-                    )}
+                    <div className="flex flex-wrap gap-2 mt-1">
+                      {item.flavor && (
+                        <p className="text-xs text-muted-foreground border border-border px-2 py-0.5 rounded">
+                          Flavor: {item.flavor}
+                        </p>
+                      )}
+                      {item.weight && (
+                        <p className="text-xs text-muted-foreground border border-border px-2 py-0.5 rounded">
+                          Weight: {item.weight}
+                        </p>
+                      )}
+                    </div>
                   </div>
                   <p className="font-bold text-primary text-xl">
                     ₹{(item.price * item.quantity).toLocaleString("en-IN")}

@@ -37,7 +37,7 @@ export default function AdminProductsPage() {
       const productToDelete = products.find(p => p.id === id);
 
       await deleteDoc(doc(db, "products", id));
-      
+
       if (productToDelete?.imageFileId) {
         const currentUser = auth.currentUser;
         if (currentUser) {
@@ -90,7 +90,7 @@ export default function AdminProductsPage() {
                       <Image src={product.imageUrl || "/placeholder.svg"} alt={product.name} fill sizes="10vw" className="object-cover" />
                     </div>
                   </TableCell>
-                  <TableCell className="font-medium text-white">{product.name}</TableCell>
+                  <TableCell className="font-medium text-foreground">{product.name}</TableCell>
                   <TableCell className="capitalize text-muted-foreground">{product.category}</TableCell>
                   <TableCell className="font-bold text-primary">₹{product.price.toLocaleString("en-IN")}</TableCell>
                   <TableCell>

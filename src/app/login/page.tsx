@@ -120,10 +120,10 @@ function LoginContent() {
   };
 
   return (
-    <Card className="w-full max-w-md border-border shadow-[0_0_40px_rgba(201,168,76,0.1)]">
+    <Card className="w-full max-w-md border-border shadow-lg">
       <CardHeader className="space-y-1 text-center">
         <CardTitle className="text-3xl font-bold tracking-widest text-primary font-serif">
-          HAZE &amp; CO.
+          [BRAND NAME]
         </CardTitle>
         <CardDescription>Sign in to your account</CardDescription>
       </CardHeader>

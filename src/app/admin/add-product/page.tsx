@@ -19,7 +19,10 @@ export default function AddProductPage() {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [stock, setStock] = useState("");
-  const [color, setColor] = useState("");
+  const [flavor, setFlavor] = useState("");
+  const [weight, setWeight] = useState("");
+  const [proteinPerServing, setProteinPerServing] = useState("");
+  const [servingsPerContainer, setServingsPerContainer] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -76,25 +79,31 @@ export default function AddProductPage() {
         price: parseFloat(price),
         category: category.toLowerCase(),
         stock: parseInt(stock, 10),
-        color,
+        flavor,
+        weight,
+        proteinPerServing: proteinPerServing ? parseFloat(proteinPerServing) : 0,
+        servingsPerContainer: servingsPerContainer ? parseInt(servingsPerContainer, 10) : 0,
         imageUrl,
         imageFileId,
         createdAt: serverTimestamp(),
       });
 
       toast.success("Product added successfully!");
-      
+
       // Clear the physical form in the DOM (fixes the ghost file bug)
       const formElement = e.target as HTMLFormElement;
-      formElement.reset(); 
-      
+      formElement.reset();
+
       // Clear the React state
-      setName(""); 
-      setDescription(""); 
-      setPrice(""); 
-      setCategory(""); 
-      setStock(""); 
-      setColor(""); 
+      setName("");
+      setDescription("");
+      setPrice("");
+      setCategory("");
+      setStock("");
+      setFlavor("");
+      setWeight("");
+      setProteinPerServing("");
+      setServingsPerContainer("");
       setFile(null);
 
     } catch (error: any) {
@@ -118,7 +127,7 @@ export default function AddProductPage() {
             <Input id="category" required value={category} onChange={(e) => setCategory(e.target.value)} className="bg-muted/50 h-12" placeholder="e.g. Apparel" />
           </div>
         </div>
-        
+
         <div className="space-y-3">
           <Label htmlFor="description" className="text-base">Description</Label>
           <Textarea id="description" required value={description} onChange={(e) => setDescription(e.target.value)} className="bg-muted/50 min-h-[150px] resize-none" />
@@ -135,15 +144,54 @@ export default function AddProductPage() {
           </div>
         </div>
 
-        <div className="space-y-3">
-          <Label htmlFor="color" className="text-base">Color</Label>
-          <Input
-            id="color"
-            value={color}
-            onChange={(e) => setColor(e.target.value)}
-            placeholder="e.g. Rose Gold, Midnight Black, Pearl White"
-            className="bg-muted/50 h-12"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-3">
+            <Label htmlFor="flavor" className="text-base">Flavor</Label>
+            <Input
+              id="flavor"
+              value={flavor}
+              onChange={(e) => setFlavor(e.target.value)}
+              placeholder="e.g. Double Rich Chocolate"
+              className="bg-muted/50 h-12"
+            />
+          </div>
+          <div className="space-y-3">
+            <Label htmlFor="weight" className="text-base">Weight / Serving Size</Label>
+            <Input
+              id="weight"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              placeholder="e.g. 2lb, 1kg"
+              className="bg-muted/50 h-12"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-3">
+            <Label htmlFor="proteinPerServing" className="text-base">Protein Per Serving (g)</Label>
+            <Input
+              id="proteinPerServing"
+              type="number"
+              step="0.1"
+              value={proteinPerServing}
+              onChange={(e) => setProteinPerServing(e.target.value)}
+              placeholder="e.g. 24"
+              className="bg-muted/50 h-12"
+            />
+          </div>
+          <div className="space-y-3">
+            <Label htmlFor="servingsPerContainer" className="text-base">Servings Per Container</Label>
+            <Input
+              id="servingsPerContainer"
+              type="number"
+              step="1"
+              value={servingsPerContainer}
+              onChange={(e) => setServingsPerContainer(e.target.value)}
+              placeholder="e.g. 70"
+              className="bg-muted/50 h-12"
+            />
+          </div>
         </div>
 
         <div className="space-y-3">

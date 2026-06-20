@@ -11,7 +11,7 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2000&auto=format&fit=crop')",
+              "url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2000&auto=format&fit=crop')",
           }}
         />
         {/* Smoke / mist overlay */}
@@ -19,20 +19,20 @@ export default function Home() {
 
         <div className="container relative z-20 mx-auto px-4 text-center">
           <p className="text-sm tracking-[0.35em] text-primary uppercase mb-4 font-sans">
-            Haze &amp; Co. — Premium Hookah
+            [BRAND NAME] — Premium Nutrition
           </p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 drop-shadow-lg text-white font-serif leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 drop-shadow-lg text-foreground font-serif leading-tight">
             Elevate Your{" "}
-            <span className="text-primary">Smoke Session</span>
+            <span className="text-primary">Performance</span>
           </h1>
-          <p className="mx-auto max-w-[620px] text-lg text-gray-300 mb-10 font-sans">
-            Handcrafted hookahs, premium flavors, and everything you need for
-            the perfect session.
+          <p className="mx-auto max-w-[620px] text-lg text-muted-foreground mb-10 font-sans">
+            High-quality proteins, powerful pre-workouts, and everything you need for
+            the perfect recovery.
           </p>
           <Link href="/catalog">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-10 h-13 text-base tracking-widest uppercase shadow-[0_0_24px_rgba(201,168,76,0.35)]"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-10 h-13 text-base tracking-widest uppercase shadow-lg"
             >
               Explore The Collection
             </Button>
@@ -46,9 +46,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
               {
-                icon: "🪔",
+                icon: "💪",
                 title: "Premium Quality",
-                desc: "Handpicked hookah products",
+                desc: "Science-backed formulas",
               },
               {
                 icon: "🚚",
@@ -56,9 +56,9 @@ export default function Home() {
                 desc: "Fast & secure shipping",
               },
               {
-                icon: "💨",
-                title: "Flavor Guarantee",
-                desc: "100% authentic flavors",
+                icon: "🔬",
+                title: "Purity Guarantee",
+                desc: "100% authentic supplements",
               },
             ].map((f) => (
               <div key={f.title} className="flex flex-col items-center gap-3">
@@ -80,18 +80,18 @@ export default function Home() {
             Our Finest Picks
           </h2>
           <p className="text-muted-foreground mb-12 text-sm tracking-wider uppercase">
-            Curated for the perfect session
+            Curated for maximum gains
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {["Hookahs", "Flavors", "Accessories"].map((cat) => (
+            {["Whey Protein", "Pre-Workout", "Accessories"].map((cat) => (
               <Link
                 href={`/catalog?category=${cat.toLowerCase()}`}
                 key={cat}
                 className="group relative overflow-hidden rounded-xl aspect-[4/3] bg-muted border border-border hover:border-primary/60 transition-colors"
               >
-                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors z-10 duration-500" />
+                <div className="absolute inset-0 bg-background/60 group-hover:bg-background/30 transition-colors z-10 duration-500" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center z-20 gap-2">
-                  <h3 className="text-2xl font-bold text-white tracking-widest uppercase font-serif">
+                  <h3 className="text-2xl font-bold text-foreground tracking-widest uppercase font-serif">
                     {cat}
                   </h3>
                   <span className="text-xs text-primary tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
