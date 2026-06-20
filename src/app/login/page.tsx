@@ -126,6 +126,10 @@ function LoginContent() {
           [BRAND NAME]
         </CardTitle>
         <CardDescription>Sign in to your account</CardDescription>
+        <div className="mt-2 text-xs text-muted-foreground bg-muted p-2 rounded border border-border inline-block mx-auto">
+          Sample Admin email: <strong>test@test.com</strong><br />
+          Password: <strong>Admin@123</strong>
+        </div>
       </CardHeader>
 
       <CardContent className="space-y-4">

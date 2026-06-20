@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Premium Nutrition E-Commerce Platform
 
-## Getting Started
+A high-performance, modern e-commerce application built to showcase advanced full-stack development skills. This platform is tailored for a premium sports nutrition brand, offering a seamless customer shopping experience alongside a secure, functional administrative dashboard.
 
-First, run the development server:
+## 🌟 Project Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project demonstrates the ability to architect and build a scalable web application from the ground up. It integrates modern frontend frameworks with robust backend-as-a-service (BaaS) solutions to handle authentication, real-time data, and secure financial transactions. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tech Stack & Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend:** [Next.js 16](https://nextjs.org/) (App Router), React, [Tailwind CSS](https://tailwindcss.com/), [shadcn/ui](https://ui.shadcn.com/)
+- **State Management:** [Zustand](https://zustand-demo.pmnd.rs/) for fast, lightweight global cart state.
+- **Backend/Database:** Firebase Firestore (NoSQL) secured with custom Firestore Rules.
+- **Authentication:** Firebase Auth (Email/Password & Google OAuth).
+- **Payment Processing:** [Stripe](https://stripe.com/) Elements & Webhooks.
+- **Media Management:** [ImageKit](https://imagekit.io/) for optimized image hosting and delivery.
+- **Email Notifications:** [Resend](https://resend.com/) for automated order confirmations.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Core Features
 
-## Learn More
+### 🛒 Customer Experience
+- **Dynamic Product Catalog:** Users can filter and browse through various supplement categories (Whey Protein, Pre-Workout, etc.).
+- **Rich Product Details:** Pages dynamically render critical product metadata including flavor, weight, protein per serving, and total servings.
+- **Persistent Shopping Cart:** Built with Zustand to maintain cart state across sessions.
+- **Secure Checkout Flow:** Integrated Stripe Elements allow users to securely pay with multiple methods without leaving the application.
+- **Order Tracking System:** Customers can view their purchase history and track current order statuses directly from their dashboard.
 
-To learn more about Next.js, take a look at the following resources:
+### 🛡️ Administrative Dashboard
+- **Role-Based Access Control:** The admin panel is strictly gated. Only pre-approved admin emails can access the dashboard or write to the database.
+- **Product Management:** Admins can easily add new products, specify detailed nutritional data, and upload product images directly to ImageKit via a secure backend route.
+- **Order Fulfillment:** Admins can view all incoming orders, track customer shipping details, and update fulfillment statuses (e.g., from *Processing* to *Shipped*).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ⚙️ Backend & Security Highlights
+- **Stripe Webhooks:** Order creation is decoupled from the client. Stripe webhooks securely notify the Next.js backend upon successful payment, which then safely writes the order to Firestore and triggers a Resend email confirmation.
+- **Firestore Security Rules:** The database is locked down. Customers can only read products and view their own orders. Only verified admins can mutate product and order data.
+- **Server-Side Token Verification:** Sensitive API routes (like image uploading) verify Firebase ID tokens using the Firebase Admin SDK to ensure requests are legitimately authorized.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💡 Technical Challenges Solved
 
-## Deploy on Vercel
+1. **Secure Payment Fulfillment:** Moving the order creation logic from the client to a secure Stripe Webhook listener (`/api/stripe/webhook/route.ts`) eliminated the risk of client-side tampering during checkout.
+2. **Optimized Asset Delivery:** By integrating ImageKit, product images are automatically optimized and served via CDN, drastically improving the Core Web Vitals and load times of the catalog.
+3. **Complex State without Redux:** Zustand was utilized to handle the cart logic, proving that complex global state (like calculating totals, modifying quantities, and persisting to local storage) can be achieved cleanly without the boilerplate of Redux.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Note: This repository is a personal project showcase and portfolio piece. It is not licensed for open-source distribution or commercial reuse.*
